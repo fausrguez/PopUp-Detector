@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup Detector</title>
+</head>
+<body>
+  <p id="result"></p>
+  <script>
+    function popupDetector () {
+      try {
+        window.open('').close();
+        return false;
+      } catch {
+        return true;
+      }
+    }
+    const userIsBlockingPopUps = popupDetector();
+    console.log({userIsBlockingPopUps});
+    document.getElementById('result').innerText = JSON.stringify({userIsBlockingPopUps});
+  </script>
+</body>
+</html>
